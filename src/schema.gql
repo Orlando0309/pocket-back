@@ -1,0 +1,110 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  password: String!
+}
+
+type SignInToken {
+  """Example field (placeholder)"""
+  token: String!
+}
+
+type Tag {
+  id: Int!
+  name: String!
+  color: String
+  textcolor: String
+  linksId: Int
+  userId: Int
+  links: Link
+  user: User
+}
+
+type Link {
+  id: Int!
+  title: String!
+  domain: String!
+  image: String
+  userId: Int
+  tags: [Tag!]
+}
+
+type Query {
+  users: [User!]!
+  user(id: Int!): User!
+  links: [Link!]!
+  link(id: Int!): Link!
+  tag(id: Int!): Tag!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  signIn(user: SignInUserInput!): SignInToken!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createLink(link: CreateLinkInput!): Link!
+  updateLink(updateLinkInput: UpdateLinkInput!): Link!
+  removeLink(id: Int!): Link!
+  createTag(createTagInput: CreateTagInput!): Tag!
+  updateTag(updateTagInput: UpdateTagInput!): Tag!
+  removeTag(id: Int!): Tag!
+}
+
+input CreateUserInput {
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  password: String!
+}
+
+input SignInUserInput {
+  """Example field (placeholder)"""
+  email: String!
+
+  """Example field (placeholder)"""
+  password: String!
+}
+
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  email: String
+
+  """Example field (placeholder)"""
+  password: String
+  id: Int!
+}
+
+input CreateLinkInput {
+  title: String!
+  domain: String!
+  image: String
+  tags: [String!]
+}
+
+input UpdateLinkInput {
+  title: String
+  domain: String
+  image: String
+  tags: [String!]
+  id: Int!
+}
+
+input CreateTagInput {
+  name: String!
+  color: String
+  textcolor: String
+}
+
+input UpdateTagInput {
+  name: String
+  color: String
+  textcolor: String
+  id: Int!
+}
